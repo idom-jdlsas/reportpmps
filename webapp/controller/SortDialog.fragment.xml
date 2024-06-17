@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="handleSortDialogConfirm">
+		<sortItems>
+			<ViewSettingsItem text="ID Proyecto" key="mp_id" selected="true"/>
+			<ViewSettingsItem text="Descripción Proyecto" key="text"/>
+			<!--<ViewSettingsItem text="TA Code" key="zz_tecar"/>-->
+			<ViewSettingsItem text="Area Técnica" key="TecarDescription"/>
+			<!--<ViewSettingsItem text="GA Code" key="zz_geoar"/>-->
+			<ViewSettingsItem text="Area Geográfica" key="GeoarDescription"/>
+			<!--<ViewSettingsItem text="BL Code" key="zz_bline"/>-->
+			<ViewSettingsItem text="Línea de Negocio" key="BlineDescription"/>
+			<ViewSettingsItem text="DE" key="name"/>
+			<ViewSettingsItem text="Porcentaje Completado" key="porcentaje"/>
+			<ViewSettingsItem text="Fase de Encargo" key="Fase_Cierre"/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

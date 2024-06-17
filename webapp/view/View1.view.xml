@@ -1,0 +1,92 @@
+<mvc:View xmlns:tnt="sap.tnt" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml" afterInit="onInit" controllerName="report.controller.View1">
+	<App>
+		<pages>
+			<Page title="{i18n>appTitle}">
+				<!--design="Bold"-->
+				<Table id="table1" inset="false" growing="true" growingThreshold="100" growingScrollToLoad="true" itemPress="onTableSelect"
+					alternateRowColors="true" width="auto" sticky="ColumnHeaders" updateFinished="tableUpdateFinished"
+					items="{ path: '/ZCPM_C_UTIL_PGE_FOLLOW', filters: [{ path: 'tipo', operator: 'EQ', value1: 'Z002'},{ path: 'tipo', operator: 'EQ', value1: 'Z003'}], sorter : { path : 'creadoEl', descending : true  } }">
+					<!--items="{ path: '/modelData/d/results', sorter : { path : 'creadoEl', descending : true } }"-->
+					<!--items=", descending : true" -->
+					<headerToolbar>
+						<Toolbar>
+							<Title text="{i18n>ToolbarTitle}" width="auto" level="H1"/>
+							<ObjectNumber id="numeroProjectos" number="" ></ObjectNumber>
+							<ToolbarSpacer></ToolbarSpacer>
+							<!--<Label width="auto" id="periodo_revision"/>-->
+							<ToolbarSpacer></ToolbarSpacer>
+							<Button icon="sap-icon://hint" press="handlePopoverPress" tooltip="Ver información general de funcionamiento"/>
+							<Button icon="sap-icon://excel-attachment" press="onExportExcel" tooltip="Exportar lista actual a Excel"/>
+							<!-- press="onExcelDataExport" -->
+							<Button tooltip="Ordenar por" icon="sap-icon://sort" press="handleSortButtonPressed"/>
+							<Button tooltip="Opciones de Filtrado" icon="sap-icon://filter" press="handleFilterButtonPressed"/>
+							<SearchField placeholder="Introduce Proyecto..." id="searchField" tooltip="Introduce filtro de proyectos..." search=".onSearch" width="auto"></SearchField>
+							<content/>
+						</Toolbar>
+					</headerToolbar>
+					<columns hAlign="Center" vAlign="Middle" autoResizable="true">
+						<Column>
+							<header>
+								<Label design="Bold" text="{i18n>ProjectID}"/>
+							</header>
+							<!--<Text text="MP_ID" />-->
+						</Column>
+						<Column>
+							<Label design="Bold" text="{i18n>ProjectDesc}"/>
+						</Column>
+						<!--<Column hAlign="Center">
+							<Text text="TA Code"/>
+						</Column>-->
+						<Column>
+							<Label design="Bold" text="{i18n>AreaTecnica}"/>
+						</Column>
+						<!--<Column hAlign="Center">
+							<Text text="GA Code"/>
+						</Column>-->
+						<Column>
+							<Label design="Bold" text="{i18n>AreaGeográfica}"/>
+						</Column>
+						<!--<Column>
+							<Text text="BL Code"/>
+						</Column>-->
+						<Column>
+							<Label design="Bold" text="{i18n>LineaNegocio}"/>
+						</Column>
+						<Column>
+							<Label design="Bold" text="DE"/>
+						</Column>
+						<!--<Column>-->
+						<!--	<Label design="Bold" text="Fase"/>-->
+						<!--</Column>-->
+						<Column hAlign="Center">
+							<Label design="Bold" text="{i18n>Completado}"/>
+						</Column>
+						<Column hAlign="Center">
+							<Label design="Bold" text="Fase de Encargo"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem vAlign="Middle" type="Navigation">
+							<cells>
+								<ObjectNumber number="{mp_id}"/>
+								<Text text="{text}" tooltip="{text}"/>
+								<!--<ObjectNumber number="{zz_tecar}"/>-->
+								<Text text="{TecarDescription}" tooltip="{TecarDescription}"/>
+								<!--<ObjectNumber number="{zz_geoar}"/>-->
+								<Text text="{GeoarDescription}" tooltip="{GeoarDescription}"/>
+								<!--<ObjectNumber number="{zz_bline}" tooltip="{zz_bline}"/>-->
+								<Text text="{BlineDescription}" tooltip="{BlineDescription}"/>
+								<Text text="{name}" tooltip="{name}"/>
+								<!--<Text text="{fase}" tooltip="{fase}"/>-->
+								<!--<ObjectNumber number="{path : 'porcentaje' , formatter: '.Formatter.porcentajeTotal' }"/>-->
+								<ObjectNumber number="{path : 'porcentajetxt' }"/>
+								<Text text="{Fase_Cierre}" tooltip="{Fase_Cierre}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

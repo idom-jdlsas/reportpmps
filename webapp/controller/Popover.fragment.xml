@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Popover title="Información general" class="sapUiContentPadding" placement="Bottom" initialFocus="email">
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button id="email" text="Cerrar" press="cerrarPopover"/>
+			</OverflowToolbar>
+		</footer>
+		<Text wrapping="true"
+			text="La aplicación 'Informe PGE' está dirigida a los/las Delegados/as del Sistema de Gestión Integrado (DSGI) de IDOM.&#xA;
+				Tiene por objeto listar los encargos creados en SAP, poderlos exportar a documento Excel, y acceder a su PGE para consulta.&#xA;&#xA; 
+				Muestra encargos y subencargos abiertos, no confidenciales y confidenciales. Los encargos confidenciales se listan, se exportan al documento Excel, pero NO se puede acceder al PGE.&#xA;
+				Permite filtrar por algunos campos principales del encargo:'Área Técnica', 'Área Geográfica', 'Línea de Negocio', 'Fase del encargo', y 'Director de Encargo’.&#xA;
+				Permite ordenar por: 'Código de Proyecto, ‘Descripción de Proyecto, 'Área Técnica', 'Área Geográfica', 'Línea de Negocio', 'Director de Encargo’, 'Fase del encargo', y ‘Porcentaje completado’.&#xA;
+				Permite buscar por: 'Código de Proyecto’.&#xA;
+				En el fichero Excel exportado:.&#xA;
+				a) Se facilitan más campos de los que se visualizan en la pantalla inicial.&#xA;&#xA;
+				b) El campo 'Estado Financiero’ se refiere al estado desde el punto de vista de administración, y tiene por opciones:&#xA;
+				b.1. 'Planificación' es desde que se crea el encargo hasta que se valida el Baseline por parte del DAT/DAG;&#xA;
+				b.2. 'Ejecución, monitoreo y control' es cuando se genera la versión Current de ejecución;&#xA;
+				b.3. 'Precierre' es si en el encargo queda alguna tarea administrativa pendiente, permitiendo registros financieros pero se cierra el financial plan y no calcula obra en curso;&#xA; 
+				b.4. 'Cierre' cuando se ha cerrado el proyecto tanto por Calidad como por Administración.&#xA;&#xA; 
+				c) El campo 'Estado de Gestión' se refiere al estado desde el punto de vista de calidad/gestión, y tiene por opciones:&#xA;
+				c.1. 'Inicial' cuando la fecha de la columna 'Creado el' sea menor a 3 semanas.&#xA;
+				c.2. 'Para cierre' cuando para el PGE se ha 'solicitado el cierre del proyecto'.&#xA;
+				c.3. 'Cerrado' cuando el PGE ha sido cerrado por Calidad..&#xA;
+				c.4. 'Desarrollo' en el resto de las situaciones..&#xA;&#xA;
+				d) El campo 'Fase del encargo' se calcula en función de los estados financiero y de gestión, y tiene por opciones:&#xA;
+				d.1. 'Cerrado' cuando ‘Estado Financiero = Cierre’ Y ‘Estado de Gestión = Cerrado’. Encargo completamente cerrado y no se debe realizar ninguna acción.&#xA;
+				d.2. 'En proceso de cierre' cuando se ha solicitado el cierre del encargo desde el PGE y ‘Estado Financiero = Precierre’ Y/O ‘Estado de Gestión = Para cierre’. Encargo que requiere alguna acción financiera o de gestión para su cierre..&#xA;d.3. 'Abierto' cuando todavía NO se ha solicitado el cierre del encargo desde el PGE.&#xA;&#xA;
+				e) El campo 'Con PGE completado al (%)' se informará teniendo en cuenta:.&#xA;e.1. Para 'Fase del encargo' = 'Inicial' con el porcentaje de los 21 campos de las fases del PGE 'Inicio' y 'Planificación'.&#xA;
+				e.2. Para 'Fase del encargo' ='Desarrollo' con el porcentaje de los 30 campos de las fases del PGE 'Inicio' y 'Planificación' y 'Ejecución y control'.&#xA; 
+				e.3. Para 'Fase del encargo' ='Para cierre' o 'Cerrado' con el porcentaje de los 36 campos de las fases del PGE 'Inicio' y 'Planificación' y 'Ejecución y control' y 'Cierre'.&#xA;&#xA; 
+				f) El campo 'PGE actualizado correctamente' se informará teniendo en cuenta:.&#xA; f.1. 'Con PGE completado al (%)’ menor o igual a 30 Y ‘Estado de Gestión’ = Inicial' será 'No valorable'.&#xA;
+				f.2. 'Con PGE completado al (%)’ menor o igual a 30 Y ‘Estado de Gestión’ = 'Desarrollo' o 'Para cierre' o 'Cerrado' será 'No'.&#xA; 
+				f.3. 'Con PGE completado al (%)’ entre 30 y 80 será 'A medias'.&#xA;
+				f.4. 'Con PGE completado al (%)’ mayor o igual que 80 será 'Sí'.&#xA;&#xA;
+				g) Los campos de 'Porcentaje ___ Comp.' muestran para cada una de las fases el % de respuestas completadas de aquella fase.&#xA;&#xA;
+				Recordar que el PGE debe estar completado en SAP para aquellos encargos abiertos en SAP (codificación= P 1...).&#xA; 
+				Recordar que los encargos abiertos en Lotus Notes (codificación = P/0...) se debe completar el PGE y realizar todo el proceso de cierre en Lotus Notes.&#xA;&#xA;"/>
+	</Popover>
+</core:FragmentDefinition>

@@ -1,0 +1,305 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZC_CPD_PLAN_CAL_DAT_CDS" xml:lang="es" sap:schema-version="1">
+			<EntityType Name="xCPDxFC_STATUS_TType" sap:content-version="1">
+				<Key><PropertyRef Name="SPRAS"/><PropertyRef Name="STATUS_ID"/></Key><Property Name="SPRAS" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Clave de idioma"/><Property Name="STATUS_ID" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="ID de estado"/><Property Name="DESCRIPTION" Type="Edm.String" MaxLength="40" sap:label="Descripción status"/></EntityType>
+			<EntityType Name="ZCDS_PLAN_CAL_PUCType" sap:label="Periodo ultimo Cierre" sap:content-version="1">
+				<Key><PropertyRef Name="ULT_PER_CERR"/></Key><Property Name="ULT_PER_CERR" Type="Edm.String" Nullable="false" MaxLength="7" sap:display-format="NonNegative" sap:label="Período"/></EntityType>
+			<EntityType Name="ZC_CPD_PLAN_CAL_DATType" sap:label="Reporte Precartera Encargos M€" sap:content-version="1">
+				<Key><PropertyRef Name="guid_proy"/><PropertyRef Name="guid_plan"/><PropertyRef Name="Ultima_modif"/><PropertyRef Name="Contador"/><PropertyRef Name="periodo"/></Key><Property Name="guid_proy" Type="Edm.Guid" Nullable="false" sap:label="" sap:quickinfo="NodeID"/><Property Name="guid_plan" Type="Edm.Guid" Nullable="false" sap:label="" sap:quickinfo="NodeID"/><Property Name="Ultima_modif" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date"/><Property Name="Contador" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="NonNegative"/><Property Name="periodo" Type="Edm.String" Nullable="false" MaxLength="7" sap:display-format="NonNegative" sap:label="Periodo"/><Property Name="mp_id" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Id Proyecto"
+					sap:quickinfo="ID de proyecto comercial" sap:value-list="standard"/><Property Name="text" Type="Edm.String" MaxLength="40" sap:label="Descripción" sap:quickinfo="Nombre de proyecto de cliente"/><Property Name="customer_code" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Cliente"
+					sap:quickinfo="Número de cliente"/><Property Name="name1" Type="Edm.String" MaxLength="35" sap:label="Cliente" sap:quickinfo="Nombre 1" sap:value-list="standard"/><Property Name="tecar" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:text="to_tecar/TechnicalAreaName"
+					sap:label="Área Técnica" sap:quickinfo="Área técnica" sap:value-list="fixed-values"/><Property Name="TechnicalAreaName" Type="Edm.String" MaxLength="40" sap:label="A.Técnica" sap:quickinfo="Área técnica" sap:creatable="false"
+					sap:updatable="false" sap:value-list="fixed-values"/><Property Name="bline" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:text="to_bline/BusinessLine"
+					sap:label="Linea negocio" sap:quickinfo="Linea de negocio" sap:value-list="fixed-values"/><Property Name="BusinessLineDescription" Type="Edm.String" MaxLength="25" sap:label="L.Negocio" sap:quickinfo="Línea de Negocio"
+					sap:value-list="fixed-values"/><Property Name="geoar" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:text="to_geoar/GeographicalAreaName"
+					sap:label="Área geográfica" sap:value-list="fixed-values"/><Property Name="GeographicalAreaName" Type="Edm.String" MaxLength="40" sap:label="A.Geográfica" sap:quickinfo="Área Geográfica"
+					sap:creatable="false" sap:updatable="false" sap:value-list="fixed-values"/><Property Name="moneda_plan" Type="Edm.String" MaxLength="5" sap:label="Moneda planificada" sap:quickinfo="Moneda de planificación"
+					sap:semantics="currency-code"/><Property Name="zz_carttot_eur" Type="Edm.Decimal" Precision="4" Scale="1" sap:label="Cartera total"
+					sap:quickinfo="Cartera total Ultimo cierre"/><Property Name="zz_cartac_eur" Type="Edm.Decimal" Precision="4" Scale="1" sap:label="Cartera &amp;1"
+					sap:quickinfo="Cartera año en curso último cierre."/><Property Name="zz_cart_resto" Type="Edm.Decimal" Precision="4" Scale="1" sap:label="Cartera resto"
+					sap:quickinfo="Cartera Resto ultimo cierre"/><Property Name="zz_pre_cart_tot" Type="Edm.Decimal" Precision="4" Scale="1" sap:label="Precartera total" sap:quickinfo="Precartera Total"/><Property Name="zz_subc_suministro" Type="Edm.Decimal" Precision="4" Scale="1" sap:label="Subc.Sumin. Precater"
+					sap:quickinfo="Subc &amp; Suministro"/><Property Name="zz_pre_cart_ac" Type="Edm.Decimal" Precision="4" Scale="1" sap:label="Precartera &amp;1"
+					sap:quickinfo="Precartera Año en curso"/><Property Name="zz_pre_cart_as" Type="Edm.Decimal" Precision="4" Scale="1" sap:label="Precartera &amp;1"
+					sap:quickinfo="Precartera Año siguiente"/><Property Name="zz_pre_cart_resto" Type="Edm.Decimal" Precision="4" Scale="1" sap:label="Precartera resto" sap:quickinfo="Precartera Resto"/><Property Name="zz_comentarios" Type="Edm.String" MaxLength="200" sap:label="Comentarios precarte" sap:quickinfo="Comentarios Precartera"/><Property Name="mp_stage" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="to_stage/mp_stg_desc" sap:label="Fase"
+					sap:quickinfo="Proyecto comercial: Fase" sap:value-list="fixed-values"/><Property Name="stage" Type="Edm.String" MaxLength="40" sap:label="Master Project: Stage"
+					sap:quickinfo="Proyecto maestro: descripción de fase" sap:creatable="false" sap:updatable="false" sap:value-list="fixed-values"/><Property Name="stage_criticality" Type="Edm.Byte"/><Property Name="mp_stg_desc" Type="Edm.String" MaxLength="40" sap:label="Descripción de fase"
+					sap:quickinfo="Proyecto maestro: descripción de fase" sap:creatable="false" sap:updatable="false"/><Property Name="Reviewed" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="ID de estado" sap:value-list="standard"/><Property Name="description" Type="Edm.String" MaxLength="40" sap:label="Estatus plan" sap:quickinfo="Descripción estado"
+					sap:value-list="fixed-values"/><Property Name="Reviewed_criticality" Type="Edm.Byte"/><Property Name="url" Type="Edm.String" MaxLength="300"/><Property Name="zz_quota" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Código de oferta"/><Property Name="ulm_mod_Plan" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Ultimo Cambio Plan"/><Property Name="zz_ta_modasoc" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Modalidad Asociación"/><Property Name="zz_ta_lider" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Líder IDOM"/><Property Name="zz_ta_porcentajeidom" Type="Edm.Int16"/><Property Name="zz_ta_contratomarco" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Contrato Marco"/><Property Name="zz_ta_honorariostotal" Type="Edm.Decimal" Precision="24" Scale="3" sap:label="Honorarios totales"/><Property Name="zz_ta_honorariosidom" Type="Edm.Decimal" Precision="24" Scale="3" sap:label="Honorarios de IDOM"/><Property Name="ulm_mod_Proy" Type="Edm.DateTime" Precision="0" sap:display-format="Date"/><Property Name="country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Clave de país"/><Property Name="proj_mgr_bupa_id" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Project Manager header"
+					sap:quickinfo="Interlocutor comercial"/><Property Name="PartnerName" Type="Edm.String" MaxLength="80" sap:label="Proj.Mnger" sap:quickinfo="Project Manager"/><Property Name="plan_id" Type="Edm.String" MaxLength="24" sap:display-format="UpperCase" sap:label="ID de plan"/><Property Name="external_id" Type="Edm.String" MaxLength="44" sap:label="ID plan financiero" sap:quickinfo="ID externo para plan financiero"/><Property Name="periodo_f" Type="Edm.String" MaxLength="10" sap:value-list="standard"/><Property Name="cero_prec_tot" Type="Edm.String" MaxLength="1"/><Property Name="after_last_closed" Type="Edm.String" MaxLength="1"/><NavigationProperty Name="to_bline" Relationship="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_784C82B1137DBF1AE972F6BFC9BB4C8E"
+					FromRole="FromRole_assoc_784C82B1137DBF1AE972F6BFC9BB4C8E" ToRole="ToRole_assoc_784C82B1137DBF1AE972F6BFC9BB4C8E"/><NavigationProperty Name="to_bupartner" Relationship="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_C43BEF446F63D7C34BB8505375AE8661"
+					FromRole="FromRole_assoc_C43BEF446F63D7C34BB8505375AE8661" ToRole="ToRole_assoc_C43BEF446F63D7C34BB8505375AE8661"/><NavigationProperty Name="to_cliente" Relationship="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_B964C0F5B8466C3ABD07574DA95BCE1E"
+					FromRole="FromRole_assoc_B964C0F5B8466C3ABD07574DA95BCE1E" ToRole="ToRole_assoc_B964C0F5B8466C3ABD07574DA95BCE1E"/><NavigationProperty Name="to_geoar" Relationship="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_79DBBBBB881111002B6BA908B97C63CE"
+					FromRole="FromRole_assoc_79DBBBBB881111002B6BA908B97C63CE" ToRole="ToRole_assoc_79DBBBBB881111002B6BA908B97C63CE"/><NavigationProperty Name="to_mp_id" Relationship="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_6F41E15FA00806B3BDACF3C5F02E96FE"
+					FromRole="FromRole_assoc_6F41E15FA00806B3BDACF3C5F02E96FE" ToRole="ToRole_assoc_6F41E15FA00806B3BDACF3C5F02E96FE"/><NavigationProperty Name="to_reviewed" Relationship="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_7F9CDE4F88C122113320A5F69652A9E6"
+					FromRole="FromRole_assoc_7F9CDE4F88C122113320A5F69652A9E6" ToRole="ToRole_assoc_7F9CDE4F88C122113320A5F69652A9E6"/><NavigationProperty Name="to_stage" Relationship="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_52FA3F5BF44A209BE8CE25E586A883AF"
+					FromRole="FromRole_assoc_52FA3F5BF44A209BE8CE25E586A883AF" ToRole="ToRole_assoc_52FA3F5BF44A209BE8CE25E586A883AF"/><NavigationProperty Name="to_tecar" Relationship="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_3CFBC4370D565C4C23AEDBB2D56DAEAA"
+					FromRole="FromRole_assoc_3CFBC4370D565C4C23AEDBB2D56DAEAA" ToRole="ToRole_assoc_3CFBC4370D565C4C23AEDBB2D56DAEAA"/><NavigationProperty Name="to_ult_periodo" Relationship="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_ECC932C9585EFC4EB3AEBC3CC1D080D5"
+					FromRole="FromRole_assoc_ECC932C9585EFC4EB3AEBC3CC1D080D5" ToRole="ToRole_assoc_ECC932C9585EFC4EB3AEBC3CC1D080D5"/></EntityType>
+			<EntityType Name="ZPS_C_CLIENTEType" sap:label="Business Partner Value Help" sap:content-version="1">
+				<Key><PropertyRef Name="partner"/></Key><Property Name="partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="Name"
+					sap:label="Cliente" sap:quickinfo="Número de deudor"/><Property Name="Name" Type="Edm.String" MaxLength="35" sap:label="BP Name" sap:quickinfo="Nombre 1"/><Property Name="CountryKey" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country Code"
+					sap:quickinfo="Clave de país"/></EntityType>
+			<EntityType Name="ZPS_C_PRJ_STAGEType" sap:label="Project stage" sap:content-version="1">
+				<Key><PropertyRef Name="mp_stg"/></Key><Property Name="mp_stg" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="mp_stg_desc"
+					sap:label="Fase" sap:quickinfo="Proyecto comercial: Fase" sap:creatable="false" sap:updatable="false"/><Property Name="mp_stg_desc" Type="Edm.String" MaxLength="40" sap:label="Descripción de fase"
+					sap:quickinfo="Proyecto maestro: descripción de fase" sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="ZPS_C_PRJ_TEXTType" sap:label="Project Descriptions" sap:content-version="1">
+				<Key><PropertyRef Name="db_key"/></Key><Property Name="db_key" Type="Edm.Guid" Nullable="false" sap:label="" sap:quickinfo="NodeID" sap:creatable="false" sap:updatable="false"/><Property Name="mp_id" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Project ID"
+					sap:quickinfo="ID de proyecto comercial" sap:creatable="false" sap:updatable="false"/><Property Name="text" Type="Edm.String" MaxLength="40" sap:label="Project Description" sap:quickinfo="Nombre de proyecto de cliente"
+					sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="ZPS_C_UTILS_BUSLINEType" sap:label="View with technical and geographical area with company relat" sap:content-version="1">
+				<Key><PropertyRef Name="BusinessLine"/><PropertyRef Name="TechnicalArea"/></Key><Property Name="BusinessLine" Type="Edm.String" Nullable="false" MaxLength="16" sap:display-format="UpperCase" sap:text="BusinessLine"
+					sap:label="Área funcional"/><Property Name="TechnicalArea" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Área Técnica"
+					sap:quickinfo="Área técnica"/><Property Name="BusinessLineDescription" Type="Edm.String" MaxLength="25" sap:label="Business Line"
+					sap:quickinfo="Denominación del área funcional"/><Property Name="blabrevia" Type="Edm.String" MaxLength="10" sap:label="Abreviatura LN"/></EntityType>
+			<EntityType Name="ZPS_C_UTILS_GEOARType" sap:label="View for BO status and description" sap:content-version="1">
+				<Key><PropertyRef Name="GeographicalArea"/></Key><Property Name="GeographicalArea" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase"
+					sap:text="GeographicalAreaName" sap:label="Área geográfica" sap:creatable="false" sap:updatable="false"/><Property Name="GeographicalAreaName" Type="Edm.String" MaxLength="40" sap:label="Descr. Área Geog."
+					sap:quickinfo="Descripción area geográfica" sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="ZPS_C_UTILS_TECARType" sap:label="View for BO status and description" sap:content-version="1">
+				<Key><PropertyRef Name="TechnicalArea"/></Key><Property Name="TechnicalArea" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:text="TechnicalAreaName"
+					sap:label="Área Técnica" sap:quickinfo="Área técnica" sap:creatable="false" sap:updatable="false"/><Property Name="TechnicalAreaName" Type="Edm.String" MaxLength="40" sap:label="Descr. Área Tecn" sap:quickinfo="Descripción área técnica"
+					sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="ZPS_C_UTILS_USER_F4Type" sap:label="User list for pge reviewers" sap:content-version="1">
+				<Key><PropertyRef Name="Partner"/></Key><Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Project Manager"
+					sap:quickinfo="Número de interlocutor comercial"/><Property Name="PartnerName2" Type="Edm.String" MaxLength="81"/><Property Name="PartnerName" Type="Edm.String" MaxLength="80" sap:label="Nombre completo"/><Property Name="bu_sort1" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Concepto búsqueda 1"
+					sap:quickinfo="Concepto de búsqueda 1 relativo al interlocutor comercial"/></EntityType>
+			<Association Name="assoc_C43BEF446F63D7C34BB8505375AE8661" sap:content-version="1"><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType" Multiplicity="1" Role="FromRole_assoc_C43BEF446F63D7C34BB8505375AE8661"/><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZPS_C_UTILS_USER_F4Type" Multiplicity="1" Role="ToRole_assoc_C43BEF446F63D7C34BB8505375AE8661"/></Association>
+			<Association Name="assoc_B964C0F5B8466C3ABD07574DA95BCE1E" sap:content-version="1"><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType" Multiplicity="1" Role="FromRole_assoc_B964C0F5B8466C3ABD07574DA95BCE1E"/><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZPS_C_CLIENTEType" Multiplicity="*" Role="ToRole_assoc_B964C0F5B8466C3ABD07574DA95BCE1E"/></Association>
+			<Association Name="assoc_79DBBBBB881111002B6BA908B97C63CE" sap:content-version="1"><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType" Multiplicity="1" Role="FromRole_assoc_79DBBBBB881111002B6BA908B97C63CE"/><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZPS_C_UTILS_GEOARType" Multiplicity="1" Role="ToRole_assoc_79DBBBBB881111002B6BA908B97C63CE"/></Association>
+			<Association Name="assoc_6F41E15FA00806B3BDACF3C5F02E96FE" sap:content-version="1"><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType" Multiplicity="1" Role="FromRole_assoc_6F41E15FA00806B3BDACF3C5F02E96FE"/><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZPS_C_PRJ_TEXTType" Multiplicity="1" Role="ToRole_assoc_6F41E15FA00806B3BDACF3C5F02E96FE"/></Association>
+			<Association Name="assoc_7F9CDE4F88C122113320A5F69652A9E6" sap:content-version="1"><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType" Multiplicity="1" Role="FromRole_assoc_7F9CDE4F88C122113320A5F69652A9E6"/><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.xCPDxFC_STATUS_TType" Multiplicity="0..1" Role="ToRole_assoc_7F9CDE4F88C122113320A5F69652A9E6"/></Association>
+			<Association Name="assoc_52FA3F5BF44A209BE8CE25E586A883AF" sap:content-version="1"><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType" Multiplicity="1" Role="FromRole_assoc_52FA3F5BF44A209BE8CE25E586A883AF"/><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZPS_C_PRJ_STAGEType" Multiplicity="0..1" Role="ToRole_assoc_52FA3F5BF44A209BE8CE25E586A883AF"/></Association>
+			<Association Name="assoc_3CFBC4370D565C4C23AEDBB2D56DAEAA" sap:content-version="1"><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType" Multiplicity="1" Role="FromRole_assoc_3CFBC4370D565C4C23AEDBB2D56DAEAA"/><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZPS_C_UTILS_TECARType" Multiplicity="1" Role="ToRole_assoc_3CFBC4370D565C4C23AEDBB2D56DAEAA"/></Association>
+			<Association Name="assoc_ECC932C9585EFC4EB3AEBC3CC1D080D5" sap:content-version="1"><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType" Multiplicity="1" Role="FromRole_assoc_ECC932C9585EFC4EB3AEBC3CC1D080D5"/><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZCDS_PLAN_CAL_PUCType" Multiplicity="0..1" Role="ToRole_assoc_ECC932C9585EFC4EB3AEBC3CC1D080D5"/></Association>
+			<Association Name="assoc_784C82B1137DBF1AE972F6BFC9BB4C8E" sap:content-version="1"><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType" Multiplicity="1" Role="FromRole_assoc_784C82B1137DBF1AE972F6BFC9BB4C8E"/><End Type="ZC_CPD_PLAN_CAL_DAT_CDS.ZPS_C_UTILS_BUSLINEType" Multiplicity="1" Role="ToRole_assoc_784C82B1137DBF1AE972F6BFC9BB4C8E"/></Association>
+			<EntityContainer Name="ZC_CPD_PLAN_CAL_DAT_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true"
+				sap:supported-formats="atom json xlsx"><EntitySet Name="xCPDxFC_STATUS_T" EntityType="ZC_CPD_PLAN_CAL_DAT_CDS.xCPDxFC_STATUS_TType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="ZCDS_PLAN_CAL_PUC" EntityType="ZC_CPD_PLAN_CAL_DAT_CDS.ZCDS_PLAN_CAL_PUCType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="ZC_CPD_PLAN_CAL_DAT" EntityType="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="ZPS_C_CLIENTE" EntityType="ZC_CPD_PLAN_CAL_DAT_CDS.ZPS_C_CLIENTEType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="ZPS_C_PRJ_STAGE" EntityType="ZC_CPD_PLAN_CAL_DAT_CDS.ZPS_C_PRJ_STAGEType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="ZPS_C_PRJ_TEXT" EntityType="ZC_CPD_PLAN_CAL_DAT_CDS.ZPS_C_PRJ_TEXTType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="ZPS_C_UTILS_BUSLINE" EntityType="ZC_CPD_PLAN_CAL_DAT_CDS.ZPS_C_UTILS_BUSLINEType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="ZPS_C_UTILS_GEOAR" EntityType="ZC_CPD_PLAN_CAL_DAT_CDS.ZPS_C_UTILS_GEOARType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="ZPS_C_UTILS_TECAR" EntityType="ZC_CPD_PLAN_CAL_DAT_CDS.ZPS_C_UTILS_TECARType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="ZPS_C_UTILS_USER_F4" EntityType="ZC_CPD_PLAN_CAL_DAT_CDS.ZPS_C_UTILS_USER_F4Type" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+				<AssociationSet Name="assoc_ECC932C9585EFC4EB3AEBC3CC1D080D5" Association="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_ECC932C9585EFC4EB3AEBC3CC1D080D5"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_CPD_PLAN_CAL_DAT" Role="FromRole_assoc_ECC932C9585EFC4EB3AEBC3CC1D080D5"/><End EntitySet="ZCDS_PLAN_CAL_PUC" Role="ToRole_assoc_ECC932C9585EFC4EB3AEBC3CC1D080D5"/></AssociationSet>
+				<AssociationSet Name="assoc_6F41E15FA00806B3BDACF3C5F02E96FE" Association="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_6F41E15FA00806B3BDACF3C5F02E96FE"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_CPD_PLAN_CAL_DAT" Role="FromRole_assoc_6F41E15FA00806B3BDACF3C5F02E96FE"/><End EntitySet="ZPS_C_PRJ_TEXT" Role="ToRole_assoc_6F41E15FA00806B3BDACF3C5F02E96FE"/></AssociationSet>
+				<AssociationSet Name="assoc_C43BEF446F63D7C34BB8505375AE8661" Association="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_C43BEF446F63D7C34BB8505375AE8661"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_CPD_PLAN_CAL_DAT" Role="FromRole_assoc_C43BEF446F63D7C34BB8505375AE8661"/><End EntitySet="ZPS_C_UTILS_USER_F4" Role="ToRole_assoc_C43BEF446F63D7C34BB8505375AE8661"/></AssociationSet>
+				<AssociationSet Name="assoc_784C82B1137DBF1AE972F6BFC9BB4C8E" Association="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_784C82B1137DBF1AE972F6BFC9BB4C8E"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_CPD_PLAN_CAL_DAT" Role="FromRole_assoc_784C82B1137DBF1AE972F6BFC9BB4C8E"/><End EntitySet="ZPS_C_UTILS_BUSLINE" Role="ToRole_assoc_784C82B1137DBF1AE972F6BFC9BB4C8E"/></AssociationSet>
+				<AssociationSet Name="assoc_3CFBC4370D565C4C23AEDBB2D56DAEAA" Association="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_3CFBC4370D565C4C23AEDBB2D56DAEAA"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_CPD_PLAN_CAL_DAT" Role="FromRole_assoc_3CFBC4370D565C4C23AEDBB2D56DAEAA"/><End EntitySet="ZPS_C_UTILS_TECAR" Role="ToRole_assoc_3CFBC4370D565C4C23AEDBB2D56DAEAA"/></AssociationSet>
+				<AssociationSet Name="assoc_7F9CDE4F88C122113320A5F69652A9E6" Association="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_7F9CDE4F88C122113320A5F69652A9E6"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_CPD_PLAN_CAL_DAT" Role="FromRole_assoc_7F9CDE4F88C122113320A5F69652A9E6"/><End EntitySet="xCPDxFC_STATUS_T" Role="ToRole_assoc_7F9CDE4F88C122113320A5F69652A9E6"/></AssociationSet>
+				<AssociationSet Name="assoc_79DBBBBB881111002B6BA908B97C63CE" Association="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_79DBBBBB881111002B6BA908B97C63CE"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_CPD_PLAN_CAL_DAT" Role="FromRole_assoc_79DBBBBB881111002B6BA908B97C63CE"/><End EntitySet="ZPS_C_UTILS_GEOAR" Role="ToRole_assoc_79DBBBBB881111002B6BA908B97C63CE"/></AssociationSet>
+				<AssociationSet Name="assoc_B964C0F5B8466C3ABD07574DA95BCE1E" Association="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_B964C0F5B8466C3ABD07574DA95BCE1E"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_CPD_PLAN_CAL_DAT" Role="FromRole_assoc_B964C0F5B8466C3ABD07574DA95BCE1E"/><End EntitySet="ZPS_C_CLIENTE" Role="ToRole_assoc_B964C0F5B8466C3ABD07574DA95BCE1E"/></AssociationSet>
+				<AssociationSet Name="assoc_52FA3F5BF44A209BE8CE25E586A883AF" Association="ZC_CPD_PLAN_CAL_DAT_CDS.assoc_52FA3F5BF44A209BE8CE25E586A883AF"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_CPD_PLAN_CAL_DAT" Role="FromRole_assoc_52FA3F5BF44A209BE8CE25E586A883AF"/><End EntitySet="ZPS_C_PRJ_STAGE" Role="ToRole_assoc_52FA3F5BF44A209BE8CE25E586A883AF"/></AssociationSet>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType/mp_id">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Project Descriptions"/><PropertyValue Property="CollectionPath" String="ZPS_C_PRJ_TEXT"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="mp_id"/><PropertyValue Property="ValueListProperty" String="mp_id"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="db_key"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType/name1">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Business Partner Value Help"/><PropertyValue Property="CollectionPath" String="ZPS_C_CLIENTE"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="proj_mgr_bupa_id"/><PropertyValue Property="ValueListProperty" String="partner"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Name"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CountryKey"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType/tecar">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="View for BO status and description"/><PropertyValue Property="CollectionPath" String="ZPS_C_UTILS_TECAR"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="tecar"/><PropertyValue Property="ValueListProperty" String="TechnicalArea"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="TechnicalAreaName"/><PropertyValue Property="ValueListProperty" String="TechnicalAreaName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="TechnicalAreaName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType/TechnicalAreaName">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="View for BO status and description"/><PropertyValue Property="CollectionPath" String="ZPS_C_UTILS_TECAR"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="tecar"/><PropertyValue Property="ValueListProperty" String="TechnicalArea"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="TechnicalAreaName"/><PropertyValue Property="ValueListProperty" String="TechnicalAreaName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType/bline">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="View with technical and geographical area with company relation"/><PropertyValue Property="CollectionPath" String="ZPS_C_UTILS_BUSLINE"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="bline"/><PropertyValue Property="ValueListProperty" String="BusinessLine"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="tecar"/><PropertyValue Property="ValueListProperty" String="TechnicalArea"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BusinessLineDescription"/><PropertyValue Property="ValueListProperty" String="BusinessLineDescription"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="blabrevia"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType/BusinessLineDescription">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="View with technical and geographical area with company relation"/><PropertyValue Property="CollectionPath" String="ZPS_C_UTILS_BUSLINE"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="bline"/><PropertyValue Property="ValueListProperty" String="BusinessLine"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="tecar"/><PropertyValue Property="ValueListProperty" String="TechnicalArea"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BusinessLineDescription"/><PropertyValue Property="ValueListProperty" String="BusinessLineDescription"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="blabrevia"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType/geoar">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="View for BO status and description"/><PropertyValue Property="CollectionPath" String="ZPS_C_UTILS_GEOAR"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="geoar"/><PropertyValue Property="ValueListProperty" String="GeographicalArea"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="GeographicalAreaName"/><PropertyValue Property="ValueListProperty" String="GeographicalAreaName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="GeographicalAreaName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType/GeographicalAreaName">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="View for BO status and description"/><PropertyValue Property="CollectionPath" String="ZPS_C_UTILS_GEOAR"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="geoar"/><PropertyValue Property="ValueListProperty" String="GeographicalArea"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="GeographicalAreaName"/><PropertyValue Property="ValueListProperty" String="GeographicalAreaName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType/mp_stage">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Project stage"/><PropertyValue Property="CollectionPath" String="ZPS_C_PRJ_STAGE"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="mp_stage"/><PropertyValue Property="ValueListProperty" String="mp_stg"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="mp_stg_desc"/><PropertyValue Property="ValueListProperty" String="mp_stg_desc"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="mp_stg_desc"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType/stage">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Project stage"/><PropertyValue Property="CollectionPath" String="ZPS_C_PRJ_STAGE"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="mp_stage"/><PropertyValue Property="ValueListProperty" String="mp_stg"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="mp_stg_desc"/><PropertyValue Property="ValueListProperty" String="mp_stg_desc"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType/Reviewed">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String=""/><PropertyValue Property="CollectionPath" String="xCPDxFC_STATUS_T"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Reviewed"/><PropertyValue Property="ValueListProperty" String="STATUS_ID"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType/description">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Project stage"/><PropertyValue Property="CollectionPath" String="ZPS_C_PRJ_STAGE"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="mp_stage"/><PropertyValue Property="ValueListProperty" String="mp_stg"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="mp_stg_desc"/><PropertyValue Property="ValueListProperty" String="mp_stg_desc"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DATType/periodo_f">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Periodo ultimo Cierre"/><PropertyValue Property="CollectionPath" String="ZCDS_PLAN_CAL_PUC"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="periodo"/><PropertyValue Property="ValueListProperty" String="ULT_PER_CERR"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_CPD_PLAN_CAL_DAT_CDS.ZC_CPD_PLAN_CAL_DAT_CDS_Entities">
+				<Annotation Term="Aggregation.ApplySupported">
+					<Record>
+						<PropertyValue Property="Transformations">
+							<Collection>
+								<String>aggregate</String>
+								<String>groupby</String>
+								<String>filter</String>
+							</Collection>
+						</PropertyValue><PropertyValue Property="Rollup" EnumMember="None"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_CPD_PLAN_CAL_DAT_CDS.ZPS_C_PRJ_TEXTType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>db_key</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="https://sapgwdev.idom.wan:443/sap/opu/odata/sap/ZC_CPD_PLAN_CAL_DAT_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="https://sapgwdev.idom.wan:443/sap/opu/odata/sap/ZC_CPD_PLAN_CAL_DAT_CDS/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

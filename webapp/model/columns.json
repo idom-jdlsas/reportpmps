@@ -1,0 +1,321 @@
+[{
+	"label": "Código Proyecto",
+	"property": "mp_id",
+	"width": 10.4,
+	"wrap": true
+}, {
+	"label": "Desc Proyecto",
+	"property": "text",
+	"width": 47.5
+}, {
+	"label": "Area Técnica",
+	"property": "TecarDescription",
+	"style": "yellow",
+	"width": 25.5
+}, {
+	"label": "Área Geográfica",
+	"property": "GeoarDescription",
+	"width": 20.4
+}, {
+	"label": "Línea Negocio",
+	"property": "BlineDescription",
+	"width": 24.4
+}, {
+	"label": "DE",
+	"property": "name",
+	"width": 32.7
+}, {
+	"label": "Confidencial",
+	"property": "confidencial",
+	"width": 8.3
+}, {
+	"label": "Desc. Cliente",
+	"property": "cliente",
+	"width": 27.8
+}, {
+	"label": "Desc. Tipo Producto",
+	"property": "tipoProducto",
+	"width": 21
+}, {
+	"label": "Desc. País",
+	"property": "descPais",
+	"width": 8.3
+}, {
+	"label": "Personal desplazado en obra",
+	"property": "personalDesplazado",
+	"width": 12.3
+}, {
+	"label": "Creado el",
+	"property": "creadoEldats",
+	"type": "Date",
+	"width": 19
+}, {
+	"label": "PGE Cerrado en",
+	"property": "PGEcerradoELdats",
+	"type": "Date",
+	"width": 19
+}, {
+	"label": "Campo ‘Stage’ de SAP",
+	"property": "mp_stg_desc",
+	"width": 14.9
+}, {
+	"label": "Estado Cierre Calidad",
+	"property": "fase",
+	"width": 14.9
+}, {
+	"label": "Estado del Encargo",
+	"property": "Fase_Cierre",
+	"width": 8.4
+}, {
+	"label": "Con PGE completado al (%)",
+	"property": "porcentajetxt",
+	"width": 8.4
+
+}, {
+	"label": "PGE actualizado correctamente",
+	"property": "pgeCompletado",
+	"width": 20
+}, {
+	"label": "Porcentaje Inicio Comp.",
+	"property": "porcentajeInicio",
+	"width": 8.4
+}, {
+	"label": "Revisión inicial",
+	"property": "initRevIni",
+	"width": 8.4
+}, {
+	"label": "Pedido conforme",
+	"property": "initPedConf",
+	"width": 8.4
+}, {
+	"label": "Datos partida",
+	"property": "initDatosPartida",
+	"width": 8.4
+}, {
+	"label": "Uso referencia",
+	"property": "initUsoReferencia",
+	"width": 8.4
+}, {
+	"label": "Reunion Inicio Cliente",
+	"property": "initProjCharter",
+	"width": 8.4
+}, {
+	"label": "Referencia",
+	"property": "initReferencia",
+	"width": 8.4
+}, {
+	"label": "Reunión interna",
+	"property": "initReunionInterna",
+	"width": 8.4
+}, {
+	"label": "Porcentaje Plan Comp.",
+	"property": "porcentajePlan",
+	"width": 8.4
+}, {
+	"label": "Análisis requisitos",
+	"property": "planAnalisisRequisitos",
+	"width": 8.4
+}, {
+	"label": "Requisitos técnicos",
+	"property": "planReqTecnicos",
+	"width": 8.4
+}, {
+	"label": "Requisitos MA",
+	"property": "planReqMA",
+	"width": 8.4
+}, {
+	"label": "Requisitos SyS",
+	"property": "planSyS",
+	"width": 8.4
+}, {
+	"label": "Alcance",
+	"property": "planAlcance",
+	"width": 8.4
+}, {
+	"label": "Plazo",
+	"property": "planPlazo",
+	"width": 8.4
+}, {
+	"label": "Plan financiero",
+	"property": "planPlanFinan",
+	"width": 8.4
+}, {
+	"label": "Recursos",
+	"property": "planRecursos",
+	"width": 8.4
+}, {
+	"label": "Partes interesadas",
+	"property": "planPartesInteresadas",
+	"width": 8.4
+}, {
+	"label": "Compras",
+	"property": "planCompras",
+	"width": 8.4
+}, {
+	"label": "Entregables",
+	"property": "planEntregables",
+	"width": 8.4
+}, {
+	"label": "Riesgos",
+	"property": "planRiesgos",
+	"width": 8.4
+}, {
+	"label": "Porcentaje Ejecuc. Comp.",
+	"property": "porcentajeEjec",
+	"type": "",
+	"width": 8.4
+}, {
+	"label": "Alcance",
+	"property": "execAlcance",
+	"width": 8.4
+}, {
+	"label": "Plazo",
+	"property": "execPlazo",
+	"width": 8.4
+}, {
+	"label": "Plan financiero",
+	"property": "execPlanFinaciero",
+	"width": 8.4
+}, {
+	"label": "Recursos",
+	"property": "execRecursos",
+	"width": 8.4
+}, {
+	"label": "Partes interesadas",
+	"property": "execPartesInteresadas",
+	"width": 8.4
+}, {
+	"label": "Compras",
+	"property": "execCompras",
+	"width": 8.4
+}, {
+	"label": "Entregables",
+	"property": "execEntregables",
+	"width": 8.4
+}, {
+	"label": "Riesgos",
+	"property": "execRiesgos",
+	"width": 8.4
+}, {
+	"label": "Cambios y ampliaciones",
+	"property": "execCambiosAmpliaciones",
+	"width": 8.4
+}, {
+	"label": "Porcentaje Cierre Comp.",
+	"property": "porcentajeCierre",
+	"width": 8.4
+}, {
+	"label": "Compras",
+	"property": "closeCompras",
+	"width": 8.4
+}, {
+	"label": "Última entrega",
+	"property": "closeUltimaEntrega",
+	"width": 8.4
+}, {
+	"label": "Referencia",
+	"property": "closeReferencia",
+	"width": 8.4
+}, {
+	"label": "Eval.Interna",
+	"property": "gradetxt",
+	"width": 8.4
+}, {
+	"label": "Lecc.Aprendidas",
+	"property": "closeLecciones",
+	"width": 8.4
+}, {
+	"label": "Eval.Externa",
+	"property": "closeEvaluacionExterna",
+	"width": 8.4
+}, {
+	"label": "Honorarios",
+	"property": "honorarioidom",
+	"width": 8.4,
+	"scale": 2,
+	"delimiter": true
+}, {
+	"label": "Moneda",
+	"property": "curre",
+	"width": 8.4
+}, {
+	"label": "Responsable administración",
+	"property": "Respadmin",
+	"width": 8.4
+}, {
+	"label": "Responsable administración 2",
+	"property": "Respadmin2",
+	"width": 8.4
+}, {
+	"label": "Fecha de inicio de admin",
+	"property": "DateIniAdminRdats",
+	"type": "Date",
+	"width": 8.4
+}, {
+	"label": "Fecha de fin de admin",
+	"property": "DateFinAdminRdats",
+	"type": "Date",
+	"width": 8.4
+}, {
+	"label": "Estatus Admin",
+	"property": "pge1_desc",
+	"width": 8.4
+}, {
+	"label": "Responsable Asign Eval",
+	"property": "Reseval",
+	"width": 8.4
+}, {
+	"label": "Fecha de inicio de asign Eval",
+	"property": "DateIniAsingRdats",
+	"type": "Date",
+	"width": 8.4
+}, {
+	"label": "Fecha de fin de asign Eval",
+	"property": "DateFinAsingRdats",
+	"type": "Date",
+	"width": 8.4
+}, {
+	"label": "Estatus asign Eval",
+	"property": "pge2_desc",
+	"width": 8.4
+}, {
+	"label": "Responsable externo",
+	"property": "Respexte",
+	"width": 8.4
+}, {
+	"label": "Fecha de inicio de Eval ext",
+	"property": "DateIniEvalextRdats",
+	"type": "Date",
+	"width": 8.4
+}, {
+	"label": "Fecha de Fin  de Eval ext",
+	"property": "DateFinEvalextRdats",
+	"type": "Date",
+	"width": 8.4
+}, {
+	"label": "Estatus Eval ext ",
+	"property": "pge4_desc",
+	"width": 8.4
+}, {
+	"label": "Responsable Apro gest",
+	"property": "Respaproges",
+	"width": 8.4
+}, {
+	"label": "Fecha de inicio de Apro gest",
+	"property": "DateIniAprogestRdats",
+	"type": "Date",
+	"width": 19
+}, {
+	"label": "Fecha de fin de Apro gest",
+	"property": "DateFinAprogestRdats",
+	"type": "Date",
+	"width": 19
+}, {
+	"label": "Estatus Apro gest",
+	"property": "pge3_desc",
+	"width": 8.4
+}, {
+	"label": "Grado de Avance del Encargo",
+	"property": "Estatuseval2",
+	"width": 8.4
+}]

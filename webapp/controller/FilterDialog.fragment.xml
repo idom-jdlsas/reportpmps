@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog resetFilters="resetFilter" id="viewsettingsdialog" confirm="handleFilterDialogConfirm"  filterItems="{/filters}" > 
+		<filterItems>
+			<ViewSettingsFilterItem key="{key}" text="{desc}" multiSelect="true" items="{values}">
+				<items>
+					<ViewSettingsItem key="{keyCustom}" text="{textCustom}"/>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>
